@@ -1,0 +1,41 @@
+<div>
+    First Name <br />
+    <input type="text" ng-model="newemployee.FirstName" />
+    <br />
+    Last Name <br />
+    <input type="text" ng-model="newemployee.LastName" />
+    <br />
+    Age <br />
+    <input type="text" ng-model="newemployee.Age" />
+    <br />
+    Department <br />
+    <input type="text" ng-model="newemployee.Department" />
+    <br />
+    City <br />
+    <input type="text" ng-model="newemployee.City" />
+    <br />
+    <br />
+    <button class="btn btn-primary" ng-click="addemployee()">Add Employee</button>    
+    <br />
+
+    <br />
+    <div class="well well-sm" ng-show="employeecount == 0">
+            <h5>No Employee data found </h5>
+        </div>
+     <div> Total Employees: {{employeecount}}</div>    
+    <br />
+        <div >
+            <div class="row cardContainer">
+                <div class="span3 card" ng-repeat="employee in employees | orderBy:'FirstName'">
+                    <button class="" ng-click="deleteemployee(employee.id)">Delete</button>                    
+                     <a href="#/employeeupdate/{{employee.id}}" >Update Employee Details</a><br/>
+                    <div class="cardHeader">{{employee.FirstName + ' ' + employee.LastName}}</div>
+                    <div class="cardBody">{{employee.Age}}</div> 
+                    <div class="cardBody">{{employee.Department}}</div> 
+                    <div class="cardBody">{{employee.City}}</div>                                     
+                </div>
+            </div>
+        </div>
+     
+    <a href="#/employeesearch" class="btn btn-primary">Search Employee</a><br/>
+  </div>
